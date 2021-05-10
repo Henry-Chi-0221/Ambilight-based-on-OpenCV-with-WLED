@@ -26,6 +26,12 @@ num_leds_bottom = 22
 division = 8  #Lower this value may cause lag.
 resolution = (1280/division,720/division) 
 ```
+
+* Set udp host & port
+```py
+UDP_IP_ADDRESS = "192.168.1.151"
+UDP_PORT_NO = 21324
+```
 * Run the code:
 ```py
 python3 capture.py
