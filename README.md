@@ -1,5 +1,11 @@
-# Ambilight-based-on-opencv-with-WLED
+# Ambilight-based-on-OpenCV-with-WLED
 Read and process frames from usb-video-capture-device ,and transmit output using udp protocol to WLED to control LED strips
+
+# Demo
+
+
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/Sus72gKCD5g/0.jpg)](https://www.youtube.com/watch?v=Sus72gKCD5g)
+* https://www.youtube.com/watch?v=Sus72gKCD5g
 
 # *Notice : This project needs to work with WLED
 * WLED github link : https://github.com/Aircoookie/WLED
