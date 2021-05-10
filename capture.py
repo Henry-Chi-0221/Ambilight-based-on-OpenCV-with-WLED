@@ -16,7 +16,7 @@ num_leds_left  = 14
 num_leds_right = 14
 num_leds_top   = 23
 num_leds_bottom = 22
-
+num_leds_data = 2+(num_leds_left +num_leds_right + num_leds_top + num_leds_bottom)*3
 width = 20
 UDP_IP_ADDRESS = "192.168.1.151"
 UDP_PORT_NO = 21324
@@ -24,10 +24,10 @@ speed = 0
 
 full_strip = [2,2]
 
-current = np.zeros(221)
+current = np.zeros(num_leds_data)
 current[:2] = 2
 current = current.astype(int).tolist()
-full_strip = np.zeros(221).astype(int).tolist()
+full_strip = np.zeros(num_leds_data).astype(int).tolist()
 
 def transmit(current):
     Message = bytearray(current)
@@ -124,7 +124,7 @@ async def transmit_async():
 
 if __name__ == "__main__":
     loop = asyncio.get_event_loop()
-    tasks = [test(i) for i in range(221)]
+    tasks = [test(i) for i in range(num_leds_data)]
     tasks.append(capture())
     cors = asyncio.wait(tasks)
     loop.run_until_complete(cors)
