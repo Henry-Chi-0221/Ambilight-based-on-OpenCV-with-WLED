@@ -33,6 +33,6 @@ UDP_IP_ADDRESS = "192.168.1.151"
 UDP_PORT_NO = 21324
 ```
 * Run the code:
-```py
+```bash
 python3 capture.py
 ```
