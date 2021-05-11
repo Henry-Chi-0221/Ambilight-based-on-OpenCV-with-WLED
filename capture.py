@@ -4,7 +4,8 @@ import math
 import socket
 import time
 import asyncio
-cap = cv2.VideoCapture(0)
+#cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture('test.mp4')
 division = 8
 resolution = (1280/division,720/division)
 fps = 5
@@ -54,13 +55,18 @@ async def test(x):
         await asyncio.sleep(0)
 
 def get_average(src):
-    #src = src.copy()
+    src = src.copy()
     channels = cv2.mean(src)
     src[:,:] = np.array([(channels[2] , channels[1] , channels[0])])[0]
     return [int(channels[2]) , int(channels[1]) , int(channels[0])]
 async def capture():
+    
     while(1):
         ret , frame = cap.read()
+        #src = frame.copy()
+        w,h = resolution
+        w,h = int(w),int(h)
+        frame = cv2.resize(frame, (w,h) ,interpolation=cv2.INTER_AREA)
         if(ret):
             global full_strip
             left_strip = []
@@ -109,10 +115,9 @@ async def capture():
                 full_strip.append(bottom_strip[m,1])
                 full_strip.append(bottom_strip[m,2])
             
-            
-            
-            await asyncio.sleep(0)
-            #cv2.imshow('src' , frame)    
+            await asyncio.sleep(1/60)
+            #frame = cv2.resize(frame, (1280,720) ,interpolation=cv2.INTER_AREA)
+            #cv2.imshow('src' , src)    
             transmit(current)
         if cv2.waitKey(1) & 0xFF ==ord('q'):
             break
