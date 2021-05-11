@@ -6,12 +6,13 @@
 [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/Sus72gKCD5g/0.jpg)](https://www.youtube.com/watch?v=Sus72gKCD5g)
 * https://www.youtube.com/watch?v=Sus72gKCD5g
 
-# *Notice : This project needs to work with WLED
+## *Notice : This project needs to work with WLED
 * WLED github link : https://github.com/Aircoookie/WLED
 
 # Dependencies
 * opencv-python
 * asyncio
+* numpy
 # Usage
 * Customize your led layout,default setting is as below
 ```py
