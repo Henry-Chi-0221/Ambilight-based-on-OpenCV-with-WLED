@@ -63,7 +63,7 @@ async def capture():
     
     while(1):
         ret , frame = cap.read()
-        #src = frame.copy()
+        src = frame.copy()
         w,h = resolution
         w,h = int(w),int(h)
         frame = cv2.resize(frame, (w,h) ,interpolation=cv2.INTER_AREA)
@@ -117,7 +117,7 @@ async def capture():
             
             await asyncio.sleep(1/60)
             #frame = cv2.resize(frame, (1280,720) ,interpolation=cv2.INTER_AREA)
-            #cv2.imshow('src' , src)    
+            cv2.imshow('src' , src)    
             transmit(current)
         if cv2.waitKey(1) & 0xFF ==ord('q'):
             break
